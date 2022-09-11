@@ -1,6 +1,6 @@
 function findLargestPrimeFactor(num) {
   const isPrime = (num) => {
-    // Trial Divison Algortihm
+    // Trial Divison Algorithm
 
     const rootOfNum = Math.ceil(Math.sqrt(num));
 
