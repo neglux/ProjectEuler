@@ -9,7 +9,7 @@ function getNthPrime(n) {
   };
   const removeMultiples = (number, arr) => {
     let isRemoved = false;
-    for (let i = 2; i * number < arr[arr.length - 1]; i++) {
+    for (let i = 2; i * number <= arr[arr.length - 1]; i++) {
       const index = arr.indexOf(number * i);
       if (index !== -1) {
         arr.splice(index, 1);
