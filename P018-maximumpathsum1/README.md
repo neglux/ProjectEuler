@@ -33,3 +33,5 @@
 ```
 
 <p class="note"><b>NOTE:</b> As there are only 16384 routes, it is possible to solve this problem by trying every route. However, <a href="https://projecteuler.net/problem=67">Problem 67</a>, is the same challenge with a triangle containing one-hundred rows; it cannot be solved by brute force, and requires a clever method! ;o)</p>
+
+[projecteuler.net](https://projecteuler.net/problem=18)
