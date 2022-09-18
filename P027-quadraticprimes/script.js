@@ -1,36 +1,12 @@
-function productOfCoefficients() {
-  const sieveOfEratosthenes = (limit) => {
-    const createListFrom2ToN = (n) => {
-      const arr = [];
-      for (let i = 2; i < n; i++) arr.push(i);
-      return arr;
-    };
+import { sieveOfEratosthenes } from "../eulib.js";
 
-    const removeMultiples = (number, arr) => {
-      const remove = (value, arr) => {
-        const index = arr.indexOf(value);
-        if (index === -1) return false;
-        arr.splice(index, 1);
-        return true;
-      };
-      const maxElementInArr = arr[arr.length - 1];
-      for (let i = 2; i * number <= maxElementInArr; i++) {
-        remove(i * number, arr);
-      }
-    };
-    const arr = createListFrom2ToN(limit);
-    arr.forEach((num) => {
-      removeMultiples(num, arr);
-    });
-    return arr;
-  };
+function productOfCoefficients() {
   const primes = sieveOfEratosthenes(1000);
   const getNumberOfProducedPrimes = (a, b) => {
     let n = 0;
     let primeCount = 0;
     while (true) {
-      num = n * n + a * n + b;
-      if (primes.includes(num)) primeCount++;
+      if (primes.includes(n * n + a * n + b)) primeCount++;
       else return primeCount;
       n++;
     }
