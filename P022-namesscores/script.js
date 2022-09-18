@@ -1,47 +1,30 @@
-const alphabet = [
-  "",
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-];
-const fs = require("fs");
+import { alphabet } from "../eulib.js";
+import { readFileSync } from "fs";
 
 const getNames = (path) => {
-  return fs.readFileSync(path, "utf8").split(",");
+  return readFileSync(path, "utf8").split(",");
+};
+
+const removeCharacters = (chars, arr) => {
+  return arr.map((e) => {
+    for (const char of chars) {
+      e = e.replace(char, "");
+    }
+    return e;
+  });
 };
 
 function calcTotalNamesScore(arr) {
+  arr = removeCharacters(['"', '"'], arr);
   arr.sort();
   let total = 0;
   arr.forEach((name, index) => {
-    const alphValue = name.split("").reduce((acc, letter) => {
-      if (letter !== '"') return (acc += alphabet.indexOf(letter));
-      else return acc;
-    }, 0);
-    const score = alphValue * (index + 1);
+    const alphaValue = name.split("").reduce(
+      (acc, letter) => (acc += alphabet[letter]),
+
+      0
+    );
+    const score = alphaValue * (index + 1);
     total += score;
   });
   return total;
