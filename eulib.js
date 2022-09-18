@@ -100,3 +100,74 @@ export const trialDivision = (num) => {
   }
   return divisors;
 };
+
+/**
+ Returns the factorial of given number
+ * @param n - an integer
+ */
+export const factorial = (n) => {
+  const memo = [];
+  const memoized = (n, memo) => {
+    if (n === 0 || n === 1) return 1;
+
+    if (memo[n]) return memo[n];
+    memo[n] = n * memoized(n - 1, memo);
+    return memo[n];
+  };
+  return memoized(n, memo);
+};
+
+/**
+ Returns the factorial of given number
+ * @param n - an integer
+ */
+export const bigIntFactorial = (n) => {
+  const memo = [];
+  const memoized = (n, memo) => {
+    n = BigInt(n);
+    if (n === 0n || n === 1n) return 1n;
+
+    if (memo[n]) return memo[n];
+    memo[n] = n * memoized(n - 1n, memo);
+    return memo[n];
+  };
+  return memoized(n, memo);
+};
+
+/**
+ Returns the binomial coefficient of given number
+ * @param n - an integer
+ * @param k - an integer
+ */
+export const binomialCoefficient = (n, k) => {
+  return factorial(n) / (factorial(k) * factorial(n - k));
+};
+
+export const alphabet = {
+  A: 1,
+  B: 2,
+  C: 3,
+  D: 4,
+  E: 5,
+  F: 6,
+  G: 7,
+  H: 8,
+  I: 9,
+  J: 10,
+  K: 11,
+  L: 12,
+  M: 13,
+  N: 14,
+  O: 15,
+  P: 16,
+  Q: 17,
+  R: 18,
+  S: 19,
+  T: 20,
+  U: 21,
+  V: 22,
+  W: 23,
+  X: 24,
+  Y: 25,
+  Z: 26,
+};
