@@ -1,7 +1,9 @@
+/**
+ This function uses Trial Divison Algorithm for Prime Factorization
+ * @param num - an integer to finding largest prime factors
+ */
 function findLargestPrimeFactor(num) {
   const isPrime = (num) => {
-    // Trial Divison Algorithm
-
     const rootOfNum = Math.ceil(Math.sqrt(num));
 
     for (let i = 2; i <= rootOfNum; i++) {
@@ -9,8 +11,8 @@ function findLargestPrimeFactor(num) {
     }
     return true;
   };
-  let largest = -Infinity;
 
+  let largest = -Infinity;
   let factor = 2;
   while (factor <= num) {
     if (isPrime(factor)) {

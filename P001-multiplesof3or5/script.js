@@ -1,3 +1,8 @@
+/**
+ * @param a - multiplicand: a quantity which is to be multiplied by another
+ * @param b - multiplicand: a quantity which is to be multiplied by another
+ * @param limit - upper limit of multiples
+ */
 function sumOfMultiples(a, b, limit) {
   const getLargestMultiple = (num, limit) => {
     for (let i = limit - 1; i != 0; i--) if (i % num == 0) return i;

@@ -1,3 +1,6 @@
+/**
+ * @param digit - number of digits in numbers
+ */
 function getLargestPalindromeProduct(digit) {
   const isPalindrome = (num) => {
     num = String(num);
