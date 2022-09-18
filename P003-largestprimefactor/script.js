@@ -1,13 +1,6 @@
+import { isPrime } from "../eulib.js";
+
 function findLargestPrimeFactor(num) {
-  const isPrime = (num) => {
-    const rootOfNum = Math.ceil(Math.sqrt(num));
-
-    for (let i = 2; i <= rootOfNum; i++) {
-      if (num % i == 0) return false;
-    }
-    return true;
-  };
-
   let largest = -Infinity;
   let factor = 2;
   while (factor <= num) {

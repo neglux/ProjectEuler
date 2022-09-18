@@ -1,5 +1,6 @@
+import { isPythagoreanTriplet } from "../eulib.js";
+
 function findSpecialPythagoreanTriplet() {
-  const isPythagoreanTriplet = (a, b, c) => a * a + b * b === c * c;
   let a = 1;
   while (a < 1000 / 3) {
     for (let b = a + 1; b < 1000 / 2; b++) {
@@ -11,5 +12,3 @@ function findSpecialPythagoreanTriplet() {
     a++;
   }
 }
-
-console.log(findSpecialPythagoreanTriplet());

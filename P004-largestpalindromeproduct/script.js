@@ -1,16 +1,6 @@
-function getLargestPalindromeProduct(digit) {
-  const isPalindrome = (num) => {
-    num = String(num);
-    let left = 0;
-    let right = num.length - 1;
-    while (left < right) {
-      if (num[left] !== num[right]) return false;
-      left++;
-      right--;
-    }
-    return true;
-  };
+import { isPalindrome } from "../eulib.js";
 
+function getLargestPalindromeProduct(digit) {
   let maxProduct = 0;
   const minValue = Math.pow(10, digit - 1),
     maxValue = Math.pow(10, digit) - 1;
