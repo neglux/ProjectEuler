@@ -1,4 +1,4 @@
-function getLargestPalindromeProduct(maxValue, minValue) {
+function getLargestPalindromeProduct(digit) {
   const isPalindrome = (num) => {
     num = String(num);
     let left = 0;
@@ -11,7 +11,9 @@ function getLargestPalindromeProduct(maxValue, minValue) {
     return true;
   };
 
-  let maxProduct = -Infinity;
+  let maxProduct = 0;
+  const minValue = Math.pow(10, digit - 1),
+    maxValue = Math.pow(10, digit) - 1;
   let i = maxValue;
   while (i >= minValue) {
     for (let j = i; j > minValue; j--) {
@@ -22,5 +24,3 @@ function getLargestPalindromeProduct(maxValue, minValue) {
   }
   return maxProduct;
 }
-
-getLargestPalindromeProduct(999, 100);
