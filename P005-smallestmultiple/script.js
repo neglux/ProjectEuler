@@ -1,24 +1,31 @@
 import { factorizeToPrimes } from "../eulib.js";
 
 function getSmallestMultiple(range) {
-  const getLargestFactors = (arr) => {
-    const factors = {};
-    for (const object of arr) {
-      for (const key in object) {
-        factors[key] = Math.max(factors[key] || 0, object[key]);
+  const mergePrimeFactors = (factors) => {
+    const merged = {};
+    for (const obj of factors) {
+      for (const key in obj) {
+        merged[key] = Math.max(merged[key] || 0, obj[key]);
       }
     }
-    const largests = [];
-    for (const key in factors) {
-      const value = Math.pow(key, factors[key]);
-      largests.push(value);
-    }
-    return largests;
+    return merged;
   };
 
-  const factors = [];
+  const calcMultiplicands = (factors) => {
+    const multiplicands = [];
+    for (let num in factors) {
+      num = parseInt(num);
+      multiplicands.push(Math.pow(num, factors[num]));
+    }
+    return multiplicands;
+  };
+
+  let factors = [];
   for (let i = 2; i <= range; i++) {
     factors.push(factorizeToPrimes(i));
   }
-  return getLargestFactors(factors).reduce((acc, val) => (acc *= val));
+  factors = mergePrimeFactors(factors);
+  const multiplicands = calcMultiplicands(factors);
+
+  return multiplicands.reduce((acc, val) => (acc *= val));
 }
