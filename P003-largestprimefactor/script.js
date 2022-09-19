@@ -1,16 +1,10 @@
-import { isPrime } from "../eulib.js";
+import { factorizeToPrimes } from "../eulib.js";
 
 function findLargestPrimeFactor(num) {
-  let largest = -Infinity;
-  let factor = 2;
-  while (factor <= num) {
-    if (isPrime(factor)) {
-      if (num % factor == 0) {
-        largest = factor;
-        num /= factor;
-      }
-    }
-    factor++;
+  let largest = 0;
+  for (let factor in factorizeToPrimes(num)) {
+    factor = parseInt(factor);
+    if (factor > largest) largest = factor;
   }
   return largest;
 }
