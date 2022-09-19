@@ -9,7 +9,7 @@ export const fib = (n) => Math.round(Math.pow(1.61803398875, n) / Math.sqrt(5));
  * @param num - an integer
  */
 export const isPrime = (num) => {
-  for (let i = 2; i <= Math.ceil(Math.sqrt(num)); i++) {
+  for (let i = 2; i <= Math.round(Math.sqrt(num)); i++) {
     if (num % i == 0) return false;
   }
   return true;
