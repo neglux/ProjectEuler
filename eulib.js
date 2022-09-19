@@ -106,15 +106,9 @@ export const trialDivision = (num) => {
  * @param n - an integer
  */
 export const factorial = (n) => {
-  const memo = [];
-  const memoized = (n, memo) => {
-    if (n === 0 || n === 1) return 1;
+  if (n === 0 || n === 1) return 1;
 
-    if (memo[n]) return memo[n];
-    memo[n] = n * memoized(n - 1, memo);
-    return memo[n];
-  };
-  return memoized(n, memo);
+  return n * factorial(n - 1);
 };
 
 /**
@@ -122,16 +116,10 @@ export const factorial = (n) => {
  * @param n - an integer
  */
 export const bigIntFactorial = (n) => {
-  const memo = [];
-  const memoized = (n, memo) => {
-    n = BigInt(n);
-    if (n === 0n || n === 1n) return 1n;
+  n = BigInt(n);
+  if (n === 0n || n === 1n) return 1n;
 
-    if (memo[n]) return memo[n];
-    memo[n] = n * memoized(n - 1n, memo);
-    return memo[n];
-  };
-  return memoized(n, memo);
+  return n * factorial(n - 1n, memo);
 };
 
 /**
