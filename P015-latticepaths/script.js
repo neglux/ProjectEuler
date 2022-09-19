@@ -1,14 +1,13 @@
-import { binomialCoefficient } from "../eulib.js";
+function calcNumberOfLatticePaths(i, j, memo = {}) {
+  const key = i + "," + j;
+  if (memo[key]) return memo[key];
+  if (i === 0 || j === 0) return 0;
+  if (i === 1 && j === 1) return 1;
 
-/* 
-The number of lattice paths from (0,0) to (n,k) is equal to the binomial coefficient 
-   n+k
-    n
-*/
-function calcNumberOfLatticePaths(startPoint, endPoint) {
-  if (startPoint.i !== 0 && startPoint.j !== 0) return undefined;
-
-  return binomialCoefficient(endPoint.i + endPoint.j, endPoint.i);
+  memo[key] =
+    calcNumberOfLatticePaths(i - 1, j, memo) +
+    calcNumberOfLatticePaths(i, j - 1, memo);
+  return memo[key];
 }
 
-console.log(calcNumberOfLatticePaths({ i: 0, j: 0 }, { i: 20, j: 20 }));
+console.log(calcNumberOfLatticePaths(21, 21));
