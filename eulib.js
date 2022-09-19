@@ -21,14 +21,11 @@ export const isPrime = (num) => {
  */
 export const isPalindrome = (num) => {
   num = String(num);
-  let left = 0;
-  let right = num.length - 1;
-  while (left < right) {
-    if (num[left] !== num[right]) return false;
-    left++;
-    right--;
-  }
-  return true;
+  if (num.length <= 1) return true;
+
+  if (num[0] === num[num.length - 1])
+    return isPalindrome(num.slice(1, num.length - 1));
+  return false;
 };
 
 /**
