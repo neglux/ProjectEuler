@@ -116,7 +116,7 @@ export const bigIntFactorial = (n) => {
   n = BigInt(n);
   if (n === 0n || n === 1n) return 1n;
 
-  return n * factorial(n - 1n, memo);
+  return n * bigIntFactorial(n - 1n);
 };
 
 /**
@@ -156,3 +156,17 @@ export const alphabet = {
   Y: 25,
   Z: 26,
 };
+
+/**
+ Returns the sum of the elements in given array
+ * @param arr - array of the elements
+ */
+export const sum = (arr) =>
+  arr.reduce((acc, val) => (acc = parseInt(acc) + parseInt(val)), 0);
+
+/**
+ Returns the product of the elements in given array
+ * @param arr - array of the elements
+ */
+export const product = (arr) =>
+  arr.reduce((acc, val) => (acc = parseInt(acc) * parseInt(val)), 1);
