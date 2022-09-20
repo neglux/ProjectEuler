@@ -1,9 +1,6 @@
-import { trialDivision } from "../eulib.js";
+import { sum, trialDivision } from "../eulib.js";
 
 function nonAbundantSums(max) {
-  const sum = (arr) => {
-    return arr.reduce((acc, val) => (acc += val), 0);
-  };
   const isAbundantNum = (num) => {
     return sum(trialDivision(num)) - num > num;
   };
@@ -28,5 +25,3 @@ function nonAbundantSums(max) {
   }
   return total;
 }
-
-console.log(nonAbundantSums(28123));

@@ -1,10 +1,5 @@
-import { bigIntFactorial } from "../eulib.js";
+import { bigIntFactorial, sum } from "../eulib.js";
 
 function factorialDigitSum(n) {
-  return bigIntFactorial(n)
-    .toString()
-    .split("")
-    .reduce((acc, digit) => (acc += parseInt(digit)), 0);
+  return sum(bigIntFactorial(n).toString().split(""));
 }
-
-console.log(factorialDigitSum(100));

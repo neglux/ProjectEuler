@@ -1,9 +1,9 @@
-import { trialDivision } from "../eulib.js";
+import { sum, trialDivision } from "../eulib.js";
 
 function sumOfAmicableNumbers(maxValue) {
   const isAmicableNumber = (i) => {
     const sumOfDivisors = (num) => {
-      return trialDivision(num).reduce((acc, val) => (acc += val), 0) - num;
+      return sum(trialDivision(num)) - num;
     };
 
     const pairOfi = sumOfDivisors(i);
@@ -16,5 +16,5 @@ function sumOfAmicableNumbers(maxValue) {
   for (let i = 1; i < maxValue; i++) {
     if (isAmicableNumber(i)) amicableNumbers.push(i);
   }
-  return amicableNumbers.reduce((acc, val) => (acc += val), 0);
+  return sum(amicableNumbers);
 }

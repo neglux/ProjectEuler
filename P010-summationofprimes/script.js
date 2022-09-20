@@ -1,6 +1,5 @@
-import { sieveOfEratosthenes } from "../eulib.js";
+import { sieveOfEratosthenes, sum } from "../eulib.js";
 
 function sumPrimesInRange(maxValue) {
-  const arr = sieveOfEratosthenes(undefined, maxValue);
-  return arr.reduce((acc, value) => (acc += value));
+  return sum(sieveOfEratosthenes(undefined, maxValue));
 }

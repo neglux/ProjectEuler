@@ -1,4 +1,4 @@
-import { factorial } from "../eulib.js";
+import { factorial, sum } from "../eulib.js";
 
 function digitFactorials() {
   const splitToDigits = (num) => {
@@ -26,5 +26,5 @@ function digitFactorials() {
     if (num === sumFactorialOfDigits(splitToDigits(num), memo))
       numbers.push(num);
   }
-  return numbers.reduce((acc, val) => (acc += val), 0);
+  return sum(numbers);
 }

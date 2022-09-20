@@ -1,9 +1,8 @@
+import { sum } from "../eulib.js";
+
 function pandigitalProducts(n) {
-  const sumArray = (arr) => {
-    return arr.reduce((acc, val) => (acc += parseInt(val)), 0);
-  };
   const isTotalsEqual = (arr1, arr2) => {
-    return sumArray(arr1) === sumArray(arr2);
+    return sum(arr1) === sum(arr2);
   };
 
   const isPandigital = (num, n) => {
@@ -26,12 +25,9 @@ function pandigitalProducts(n) {
     for (let mr = 1; mr < 2000; mr++) {
       const str = mc + "" + mr + "" + mc * mr;
       if (isPandigital(str, n)) {
-        console.log("--->", str, "--", mc, mr, mc * mr);
         if (!(mc * mr in uniques)) uniques[mc * mr] = str;
       }
     }
   }
-  return sumArray(Object.keys(uniques));
+  return sum(Object.keys(uniques));
 }
-
-console.log(pandigitalProducts(9));

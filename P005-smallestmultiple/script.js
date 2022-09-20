@@ -1,4 +1,4 @@
-import { factorizeToPrimes } from "../eulib.js";
+import { factorizeToPrimes, product } from "../eulib.js";
 
 function getSmallestMultiple(range) {
   const mergePrimeFactors = (factors) => {
@@ -27,5 +27,5 @@ function getSmallestMultiple(range) {
   factors = mergePrimeFactors(factors);
   const multiplicands = calcMultiplicands(factors);
 
-  return multiplicands.reduce((acc, val) => (acc *= val));
+  return product(multiplicands);
 }

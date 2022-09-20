@@ -1,4 +1,4 @@
-import { isPalindrome } from "../eulib.js";
+import { isPalindrome, sum } from "../eulib.js";
 
 function sumDoubleBasePalindromes(limit) {
   const convertToBase2 = (num) => {
@@ -17,5 +17,5 @@ function sumDoubleBasePalindromes(limit) {
     }
     num++;
   }
-  return palindromes.reduce((acc, val) => (acc += val), 0);
+  return sum(palindromes);
 }
