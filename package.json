@@ -1,3 +1,20 @@
 {
-  "type": "module"
+  "type": "module",
+  "name": "projecteuler",
+  "version": "1.0.0",
+  "description": "solutions of project euler problems",
+  "main": "eulib.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neglux/ProjectEuler.git"
+  },
+  "author": "neglux",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neglux/ProjectEuler/issues"
+  },
+  "homepage": "https://github.com/neglux/ProjectEuler#readme"
 }
