@@ -29,6 +29,16 @@ export const isPalindrome = (num) => {
 };
 
 /**
+ Returns true if a number is pandigital otherwise false
+ * @param num - an integer
+ * @param n - base for the pandigital numbers 
+ */
+export const isPandigital = (num, n) => {
+  const from1ToN = Array.from({ length: n }, (_, i) => i + 1);
+  return [...String(num)].sort().join("") === from1ToN.sort().join("");
+};
+
+/**
  Returns true if a number is pythagorean triplet otherwise false
  * @param a - an integer
  * @param b - an integer
