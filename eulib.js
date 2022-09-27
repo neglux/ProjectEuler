@@ -63,6 +63,48 @@ export const factorizeToPrimes = (num) => {
 };
 
 /**
+ Returns an array of pandigitals
+ * @param digits - array of integers less than or equal to n 
+ */
+export const generatePandigitalSequence = (digits) => {
+  const getIndexofTheFirst = (arr) => {
+    const n = arr.length - 1;
+    for (let i = n; i >= 0; i--) {
+      if (i + 1 <= n && arr[i] < arr[i + 1]) return i;
+    }
+  };
+  const getIndexofTheSecond = (arr, index) => {
+    const n = arr.length - 1;
+    let min = +Infinity;
+    for (let i = index; i <= n; i++) {
+      if (arr[i] > arr[index]) {
+        if (arr[i] < min) min = arr[i];
+      }
+    }
+    return arr.indexOf(min);
+  };
+  const swap = (i, j, arr) => {
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  };
+  const sortRest = (i, arr) => {
+    return [...arr.slice(0, i + 1), ...arr.slice(i + 1).reverse()];
+  };
+
+  const seq = [];
+  let arr = [...digits];
+  while (seq.length < factorial(digits.length)) {
+    const fIx = getIndexofTheFirst(arr);
+    const sIx = getIndexofTheSecond(arr, fIx);
+    swap(fIx, sIx, arr);
+    arr = sortRest(fIx, arr);
+    seq.push(parseInt(arr.join("")));
+  }
+  return seq;
+};
+
+/**
  Returns an array that consists of primes from 2 to n
  * @param n - an integer
  * @param maxValue - largest value that primes can reach
